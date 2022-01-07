@@ -1,0 +1,2 @@
+# CompatScopeStorage
+AndroidQ  file store
