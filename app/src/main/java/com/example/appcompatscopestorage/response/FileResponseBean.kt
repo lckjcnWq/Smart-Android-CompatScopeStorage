@@ -7,6 +7,6 @@ import android.net.Uri
  * Created by WuQuan on 2022/1/7.
  */
 data class FileResponseBean(
-        var url: Uri? =null,
+        var uri: Uri? =null,
         var isSuccess:Boolean=false
 )

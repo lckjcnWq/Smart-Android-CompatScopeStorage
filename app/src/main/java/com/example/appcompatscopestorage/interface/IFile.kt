@@ -1,6 +1,7 @@
 package com.example.appcompatscopestorage.`interface`
 
 import android.content.Context
+import android.net.Uri
 import com.example.appcompatscopestorage.request.FileRequestBean
 import com.example.appcompatscopestorage.response.FileResponseBean
 
@@ -12,15 +13,15 @@ interface IFile {
 
    fun createFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
 
-   fun deleteFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
+   fun deleteFile(context: Context,path:String):Boolean
 
-   fun updateFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
+   fun deleteFile(context: Context,uri: Uri?):Boolean
 
-   fun queryFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
+   fun deleteFile(context: Context,uris:List<Uri>)
 
-   fun renameFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
+   fun isFileExists(context: Context,uri: Uri):Boolean
 
-   fun moveFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
+   fun queryFilePathByUri(context: Context,uri: Uri): String?
 
-   fun copyFile(context: Context,fileRequestBean: FileRequestBean):FileResponseBean
+   fun queryAllMediaData(context: Context, queryUri: Uri, idKey: String): List<Uri>
 }
