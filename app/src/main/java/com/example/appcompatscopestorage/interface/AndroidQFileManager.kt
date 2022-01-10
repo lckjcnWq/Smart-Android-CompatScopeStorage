@@ -24,12 +24,12 @@ import java.util.*
  * Description:
  * Created by WuQuan on 2022/1/7.
  */
-class AndroidQFileManagerImp : IFile {
+class AndroidQFileManager : IFile {
 
     companion object {
         @JvmStatic
         val instance by lazy {
-            AndroidQFileManagerImp()
+            AndroidQFileManager()
         }
         const val OPEN_FILE_DESCRIPTOR_MODE_READ = "r"
         const val OPEN_FILE_DESCRIPTOR_MODE_WRITE = "w"

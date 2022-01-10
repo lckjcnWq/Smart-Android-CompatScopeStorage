@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import com.blankj.utilcode.constant.PermissionConstants
 import com.blankj.utilcode.util.PermissionUtils
-import com.example.appcompatscopestorage.`interface`.AndroidQFileManagerImp
+import com.example.appcompatscopestorage.`interface`.AndroidQFileManager
 import com.example.appcompatscopestorage.request.FileRequestBean
 import com.example.appcompatscopestorage.response.FileResponseBean
 
@@ -37,19 +37,19 @@ class MainActivity : AppCompatActivity() {
 
         btnAdd.setOnClickListener {
             Thread{
-                result=AndroidQFileManagerImp.instance.createFile(this, FileRequestBean("/sdcard/Android/data/com.example.appcompatscopestorage/files/example_equi.jpg","test.png"))
+                result=AndroidQFileManager.instance.createFile(this, FileRequestBean("/sdcard/Android/data/com.example.appcompatscopestorage/files/example_equi.jpg","test.png"))
                 setContent("当前uri= ${result?.uri}  ,插入是否成功:${result?.isSuccess} ")
             }.start()
         }
 
         btnDelete.setOnClickListener {
-            val isSuccess=AndroidQFileManagerImp.instance.deleteFile(this,result?.uri)
+            val isSuccess=AndroidQFileManager.instance.deleteFile(this,result?.uri)
             setContent("删除是否成功:$isSuccess")
         }
 
 
         btnQuery.setOnClickListener {
-            val path=AndroidQFileManagerImp.instance.queryFilePathByUri(this,result?.uri!!)
+            val path=AndroidQFileManager.instance.queryFilePathByUri(this,result?.uri!!)
             setContent("当前uri的路径= $path")
         }
     }
